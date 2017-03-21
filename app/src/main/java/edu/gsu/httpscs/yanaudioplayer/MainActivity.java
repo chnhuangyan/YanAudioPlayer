@@ -43,7 +43,7 @@ public class MainActivity extends BaseActivty {
         m1.setName("One Moment");
 
         AudioOb m2 = new AudioOb();
-        m2.setURL("http://other.web.rn01.sycdn.kuwo.cn/resource/n3/51/70/1282895259.mp3");
+        m2.setURL("http://other.web.re01.sycdn.kuwo.cn/resource/n2/41/79/3442130618.mp3");
         m2.setName("I will remember you");
 
         AudioOb m3 = new AudioOb();
