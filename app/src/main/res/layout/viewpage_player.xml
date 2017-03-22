@@ -38,7 +38,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_main_play__last"
+            android:id="@+id/ll_main_play_last"
             android:layout_width="0dip"
             android:layout_height="fill_parent"
             android:layout_margin="3dip"
@@ -46,7 +46,7 @@
             android:gravity="center" >
 
             <ImageView
-                android:id="@+id/main_play__last"
+                android:id="@+id/main_play_last"
                 android:layout_width="@dimen/playscreen_play_next_size"
                 android:layout_height="@dimen/playscreen_play_next_size"
                 android:background="@drawable/playscreen_play_previous" />

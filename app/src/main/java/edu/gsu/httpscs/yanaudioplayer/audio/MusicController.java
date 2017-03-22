@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,6 +15,7 @@ import java.util.Map.Entry;
  * add MusicService to minifests
  * initMusicReceiver
  * UnRegisterReceiver
+ * setPlayList
  * addListener(name,IPlayerStatus)
  * deleteListener(name)
  * clearListener()
@@ -87,7 +89,7 @@ public class MusicController {
 //	}
 	
 	/**
-	 * Broadcast Receiver 用来接收从service传回来的广播的内部类
+	 * Broadcast Receiver used to receive msg from service according to the action
 	 */
 	public class PlayerReceiver extends BroadcastReceiver {
 		@Override
@@ -276,9 +278,10 @@ public class MusicController {
 	public void playPrevious() {
 		position = position - 1;
 		if (position >= 0) {
-			position = position;
 			play();
-		} else {//This is the first one
+		} else {
+			position+=1;
+			Toast.makeText(mContext,"This is the first one.", Toast.LENGTH_LONG).show();
 		}
 	}
 
@@ -287,7 +290,8 @@ public class MusicController {
 		if (position < getPlayList().size()) {
 			play();
 		} else {
-			//This is the last one
+			position-=1;
+			Toast.makeText(mContext,"This is the last one",Toast.LENGTH_LONG).show();
 		}
 	}
 
