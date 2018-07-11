@@ -193,27 +193,23 @@ public class MusicController {
 				entry.getValue().onResume();
 			}
 		}
-
 		private void onPause() {
 			isPlaying = false;
 			for(Entry<String, IPlayerStatus> entry : listenerMap.entrySet()){
 				entry.getValue().onPause();
 			}
 		}
-
 		private void onStart(int intExtra) {
 			isPlaying = true;
 			for(Entry<String, IPlayerStatus> entry : listenerMap.entrySet()){
 				entry.getValue().onStart(intExtra);
 			}
 		}
-
 		private void onInitComplete() {
 			for(Entry<String, IPlayerStatus> entry : listenerMap.entrySet()){
 				entry.getValue().onInitComplete();
 			}
 		}
-
 		private void onProgress(int i) {
 			for(Entry<String, IPlayerStatus> entry : listenerMap.entrySet()){
 				entry.getValue().onProgress(i);

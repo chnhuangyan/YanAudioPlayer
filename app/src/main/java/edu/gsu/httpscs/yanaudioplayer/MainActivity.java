@@ -1,22 +1,25 @@
 package edu.gsu.httpscs.yanaudioplayer;
 
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import java.util.ArrayList;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import edu.gsu.httpscs.yanaudioplayer.adapter.MainViewPagerAdapter;
 import edu.gsu.httpscs.yanaudioplayer.audio.BaseAudioOb;
+import edu.gsu.httpscs.yanaudioplayer.audio.MusicController;
 import edu.gsu.httpscs.yanaudioplayer.view.PlayListView;
 import edu.gsu.httpscs.yanaudioplayer.view.PlayView;
 
 public class MainActivity extends BaseActivty {
 
-    @BindView(R.id.main_view_pager) ViewPager viewPager;
+    @BindView(R.id.main_view_pager)
+    ViewPager viewPager;
     private ArrayList<BaseAudioOb> contentList = new ArrayList<BaseAudioOb>();
 
     @Override
@@ -57,5 +60,12 @@ public class MainActivity extends BaseActivty {
 
     public ArrayList<BaseAudioOb> getContent(){
         return contentList;
+    }
+
+    @Override
+    protected void onDestroy() {
+        MusicController controller = MusicController.getInstance(this);
+        controller.destroy();
+        super.onDestroy();
     }
 }

@@ -193,12 +193,12 @@ public class MusicService extends Service {
 
 	private void initListener() {
 		// 设置音乐播放完成时的监听器
-		mediaPlayer.setOnCompletionListener(new OnCompletionListener() {
-			@Override
-			public void onCompletion(MediaPlayer mp) {
-				notifyComplete();
-			}
-		});
+//		mediaPlayer.setOnCompletionListener(new OnCompletionListener() {
+//			@Override
+//			public void onCompletion(MediaPlayer mp) {
+//				notifyComplete();
+//			}
+//		});
 		// 设置音乐播放错误时的监听
 		mediaPlayer.setOnErrorListener(new OnErrorListener() {
 			@Override
@@ -224,7 +224,6 @@ public class MusicService extends Service {
 		});
 		// finish loading, start to play
 		mediaPlayer.setOnPreparedListener(new OnPreparedListener() {
-
 			@Override
 			public void onPrepared(MediaPlayer arg0) {
 				startPlay();
@@ -234,7 +233,7 @@ public class MusicService extends Service {
 	}
 
 	private void initCacheListener() {
-		// 缓存进度
+		// CacheProgerss
 		mediaPlayer
 				.setOnBufferingUpdateListener(new OnBufferingUpdateListener() {
 					@Override

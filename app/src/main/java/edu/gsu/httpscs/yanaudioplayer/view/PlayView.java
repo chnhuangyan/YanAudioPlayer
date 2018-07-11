@@ -64,16 +64,22 @@ public class PlayView extends LinearLayout implements MusicController.IPlayerSta
     public PlayView(Context context) {
         super(context);
         this.mContext = (MainActivity)context;
+
         LayoutInflater inflater = LayoutInflater.from(context);
         view = inflater.inflate(R.layout.viewpage_player, this);
         ButterKnife.bind(this,view);
         controller = MusicController.getInstance(mContext);
         controller.setPlayList(mContext.getContent());
         controller.addListener("PlayView",this);
+
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            private int tempProgress;
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 seekTime.setText(UtilTime.secToTime(progress));
+                if(fromUser){
+                    tempProgress = progress;
+                }
             }
 
             @Override
@@ -83,7 +89,7 @@ public class PlayView extends LinearLayout implements MusicController.IPlayerSta
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                controller.play(seekBar.getProgress());
+                controller.play(tempProgress);
             }
         });
     }
@@ -118,7 +124,6 @@ public class PlayView extends LinearLayout implements MusicController.IPlayerSta
     @Override
     public void onProgress(int i) {
         seekBar.setProgress(i);
-        seekTime.setText(UtilTime.secToTime(i));
     }
 
     @Override
@@ -143,7 +148,7 @@ public class PlayView extends LinearLayout implements MusicController.IPlayerSta
 
     @Override
     public void onUpdateCache(int i) {
-
+        seekBar.setSecondaryProgress(i);
     }
 
     @Override
