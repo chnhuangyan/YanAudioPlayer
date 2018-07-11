@@ -351,8 +351,8 @@ public class MusicService extends Service {
 					stopByPhoneStatus = false;
 				}
 				break;
-			case TelephonyManager.CALL_STATE_OFFHOOK: /* 接起电话时 */
-			case TelephonyManager.CALL_STATE_RINGING: /* 电话进来时 */
+			case TelephonyManager.CALL_STATE_OFFHOOK:
+			case TelephonyManager.CALL_STATE_RINGING:
 				if (MusicController.isPlaying) {
 					stopByPhoneStatus = true;
 					mediaPlayer.pause();

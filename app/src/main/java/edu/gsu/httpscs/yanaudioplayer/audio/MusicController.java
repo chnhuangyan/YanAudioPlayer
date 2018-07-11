@@ -261,7 +261,7 @@ public class MusicController {
 	}
 
 	/**
-	 * 注销所有Controller里的广播
+	 * cancel all receiver
 	 */
 	public void unRegisterReceiver() {
 		if (playerReceiver != null) {
